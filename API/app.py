@@ -42,7 +42,7 @@ def create_user():
     conn = get_db_connection()
     cur = conn.cursor()
 
-    cur.execute("insert into user(name,emial) values(%s , %s) RETURNING id",(name,email))
+    cur.execute("insert into users(name,email) values(%s , %s) RETURNING id",(name,email))
 
     user_id = cur.fetchone()[0]
     conn.commit()
